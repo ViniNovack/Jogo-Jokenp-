@@ -26,15 +26,15 @@ def humanoHumano():
 
 
 def humanoBot():
-    tabj = 0
-    tabb = 0
+    pontj = 0
+    pontb = 0
 
 
     os.system('cls')
     cnt = 0
     print('Você selecionou o modo: "JOGAR CONTRA BOT"\n')
     j1 = str(input('Digite o seu nome: \n'))
-    print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐\n')
+    print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐')
     while True:
         if cnt == 0:
             cnt +=1
@@ -48,10 +48,18 @@ def humanoBot():
       
       
         print('Você pode escolher entre: \n'
-              '1. ✊🏻'
-              '2. 🖐🏻'
-              '3. ✌🏻')
-        rj = int(stdiomask.getpass(prompt='😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n', mask='.'))
+              '1. ✊🏻 \n'
+              '2. 🖐🏻 \n'
+              '3. ✌🏻 \n')
+        while True:
+            rj = int(stdiomask.getpass(prompt='😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n', mask='.'))
+            if rj == 1 and rj == 2 and rj == 3:
+                break
+            else:
+                print('Esse valor é INVALIDO😵🥴, tente de novo considerando os números 1, 2 e 3')
+                continue
+
+
         rb = random.randrange(1, 4)
         if rb == 1:
             print('🤖👾Eu joguei pedra ✊🏻 \n')
@@ -66,28 +74,32 @@ def humanoBot():
             continue
         elif rj == 1 and rb == 3:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
-            tabj +=1
+            pontj +=1
             continue
         elif rj == 2 and rb == 1:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
-            tabj +=1
+            pontj +=1
             continue
         elif rj == 3 and rb == 2:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
-            tabj +=1
+            pontj +=1
             continue
         elif rb == 1 and rj == 3:
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
-            tabj +=1
+            pontb +=1
             continue
         elif rb == 2 and rj == 1:
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
-            tabj +=1
+            pontb +=1
             continue
         elif rb == 3 and rj == 2:
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
-            tabj +=1
+            pontb +=1
             continue
+    print(f'Obrigado por jogar {j1}🤗🤩 \n'
+          'Foi um prazer te conhacer😝')
+    
+
 
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
@@ -102,7 +114,7 @@ print('=-'*30)
 
 c = int(input('Escolha uma opção de jogo: \n'))
 if c == 1:
-    print('oi')
+    humanoBot()
 elif c == 2:
     print('oi')
 elif c == 3:
