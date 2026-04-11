@@ -28,13 +28,15 @@ def humanoHumano():
 def humanoBot():
     pontj = 0
     pontb = 0
+    ponte = 0
+    cnt = 0
 
 
     os.system('cls')
-    cnt = 0
-    print('Você selecionou o modo: "JOGAR CONTRA BOT"\n')
+    print('Você selecionou o modo: "👾JOGAR CONTRA BOT🤖"')
     j1 = str(input('Digite o seu nome: \n'))
-    print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐')
+    os.system('cls')
+    print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐 \n')
     while True:
         if cnt == 0:
             cnt +=1
@@ -42,18 +44,21 @@ def humanoBot():
             if (v1.lower()).strip() == 'n':
                 break
         else:
+            time.sleep(2)
+            os.system('cls')
             v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
             if (v2.lower()).strip() == 'n':
                 break
       
-      
+
+        os.system('cls')
         print('Você pode escolher entre: \n'
               '1. ✊🏻 \n'
               '2. 🖐🏻 \n'
-              '3. ✌🏻 \n')
+              '3. ✌🏻')
         while True:
-            rj = int(stdiomask.getpass(prompt='😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n', mask='.'))
-            if rj == 1 and rj == 2 and rj == 3:
+            rj = int(stdiomask.getpass(prompt='😎 FAÇA SUA JOGADA DE VENCEDOR🤩: \n', mask='.'))
+            if rj == 1 or rj == 2 or rj == 3:
                 break
             else:
                 print('Esse valor é INVALIDO😵🥴, tente de novo considerando os números 1, 2 e 3')
@@ -71,6 +76,7 @@ def humanoBot():
       
         if rj == rb:
             print(f'😱NOS EMPATAMOS😩, VAMOS MAIS UMA {j1} QUERO GANHAR DE VOCÊ👾🤩😜')
+            ponte +=1
             continue
         elif rj == 1 and rb == 3:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
@@ -96,21 +102,43 @@ def humanoBot():
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
             pontb +=1
             continue
-    print(f'Obrigado por jogar {j1}🤗🤩 \n'
-          'Foi um prazer te conhacer😝')
     
 
+
+    os.system('cls')
+    print(f'Obrigado por jogar {j1}🤗🤩 \n'
+          'Foi um prazer conhacer você😝')
+    time.sleep(4)
+    os.system('cls')
+    print('TABELA DE PONTUAÇÃO'.center(60))
+    print('=-'*30)
+    if pontj > pontb:
+        print(f'1º {j1}😁 {pontj}'.center(10))
+        print(f'2º BOT🤖 {pontb}'.center(10))
+        print(f'📌Ematamos em {ponte} rodadas😅'.center(10))
+    elif pontj < pontb:
+        print(f'1º BOT🤖 {pontb}'.center(10))
+        print(f'2º {j1}😢 {pontj}'.center(10))
+        print(f'📌Ematamos em {ponte} rodadas😅'.center(10))
+    else:
+        print(f'1º BOT🤖 {pontb} - {j1}😐 {pontj}'.center(10))
+        print(f'📌Ematamos em {ponte} rodadas😅'.center(10))
+  
 
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
 import stdiomask  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
+import time
+
 
 print('OPÇÕES DE JOGO'.center(60))
 print('=-'*30)
-print('1. JOGAR CONTRA BOT'.center(10))
+print('1. 👾JOGAR CONTRA BOT🤖'.center(10))
 print('2. JOGAR CONTRA AMIGO'.center(10))
 print('3. OBSERVAR DOIS BOTS'.center(10))
 print('=-'*30)
+
+
 
 c = int(input('Escolha uma opção de jogo: \n'))
 if c == 1:
@@ -120,4 +148,4 @@ elif c == 2:
 elif c == 3:
     print('oi')
 else:
-    print('TENTE DE NOVO, resposta INVALIDA')
+    print('❌TENTE DE NOVO, resposta INVALIDA❌')
