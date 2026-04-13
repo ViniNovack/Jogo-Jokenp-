@@ -1,28 +1,66 @@
+
 def humanoHumano():
 
     print("\nVocê selecionou o modo: HUMANO x HUMANO"
           "\nQuem começará jogando?")
 
-    jogador1 = input("\n» Digite o nome do Jogador 1: ")
+    j1 = input("\n» Digite o nome do Jogador 1: ")
 
-    print(f"Olá {jogador1}! Contra quem você irá jogar?")
+    print(f"Olá {j1}! Contra quem você irá jogar?")
 
-    jogador2 = input("\n» Digite o nome do Jogador 2: ")
+    j2 = input("\n» Digite o nome do Jogador 2: ")
 
-    print("Estamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
+    print("\nEstamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
           "\n1 - pedra"
           "\n2 - papel"
           "\n3 - tesoura")
     
-    jogada1 = int(input("Faça sua jogada {jogador1}: "))
+    jogada1 = int(input(f"\nFaça sua jogada {j1}: "))
 
     while jogada1 != 1 and jogada1 != 2 and jogada1 != 3:
-        print("Você selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+        print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
           "\n1 - pedra"
           "\n2 - papel"
           "\n3 - tesoura")
         
-        jogada1 = int(input("Faça sua jogada {jogador1}: "))
+        jogada1 = int(input(f"\nFaça sua jogada {j1}: "))
+
+    jogada2 = int(input(f"\nAgora é sua vez {j2}, faça sua jogada: "))
+
+    while jogada2 != 1 and jogada2 != 2 and jogada2 != 3:
+        print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+          "\n1 - pedra"
+          "\n2 - papel"
+          "\n3 - tesoura")
+        
+        jogada2 = int(input(f"Faça sua jogada {j2}: "))
+    
+    pontE = 0
+    pontV1 = 0
+    pontV2 = 0
+    
+    
+    if jogada1 == jogada2:
+        if jogada1 == 1:
+            jogadaEmpate = "pedra"
+        elif jogada1 == 2:
+                jogadaEmpate = "papel"
+        else:
+                jogadaEmpate = "tesoura"
+
+        print(f"\n» EMPATE «".center(10))
+        print(f"\nQue fofinhos, vocês pensam igual! Ambos jogaram {jogadaEmpate}!")
+
+        pontE += 1
+    elif (jogada1 == 1 and jogada2 == 3) or (jogada1 == 2 and jogada2 == 1) or (jogada1 == 3 and jogada2 == 2):
+        print(f"Vitóooria do {j1}!")
+        print(f"\n{jogada1} ganha de {jogada2}, {j2}..")
+        pontV1 += 1
+
+    else:
+        print(f"Vitóooria do {j2}!")
+        print(f"\n{jogada2} ganha de {jogada1}, {j1}..")
+        pontV2 += 1
 
 
 def humanoBot():
