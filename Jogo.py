@@ -1,6 +1,6 @@
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
-# import stdiomask  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
+import stdiomask  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
 import time
 
 def humanoHumano():
@@ -20,7 +20,7 @@ def humanoHumano():
             "\n2 - papel"
             "\n3 - tesoura")
         
-        jogada1 = int(input(f"\nFaça sua jogada {j1}: "))
+        jogada1 = int(stdiomask.getpass(prompt= f"\nFaça sua jogada {j1}: ", mask='.'))
 
         while jogada1 != 1 and jogada1 != 2 and jogada1 != 3:
             print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
@@ -28,9 +28,9 @@ def humanoHumano():
             "\n2 - papel"
             "\n3 - tesoura")
             
-            jogada1 = int(input(f"\nFaça sua jogada {j1}: "))
+            jogada1 = int(stdiomask.getpass(prompt= f"\nFaça sua jogada {j1}: ", mask='.'))
 
-        jogada2 = int(input(f"\nAgora é sua vez {j2}, faça sua jogada: "))
+        jogada2 = int(stdiomask.getpass(prompt= f"\nAgora é sua vez {j2}, faça sua jogada: ", mask='.'))
 
         while jogada2 != 1 and jogada2 != 2 and jogada2 != 3:
             print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
@@ -38,7 +38,7 @@ def humanoHumano():
             "\n2 - papel"
             "\n3 - tesoura")
             
-            jogada2 = int(input(f"\nFaça sua jogada {j2}: "))
+            jogada2 = int(stdiomask.getpass(prompt= f"\nAgora é sua vez {j2}, faça sua jogada: ", mask='.'))
         
         pontE = 0
         pontV1 = 0
