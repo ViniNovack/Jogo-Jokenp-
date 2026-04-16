@@ -87,9 +87,6 @@ def humanoHumano():
         else:
             print("\nBora pra mais uma!")
 
-humanoHumano()
-
-
 def humanoBot():
     pontj = 0
     pontb = 0
