@@ -1,6 +1,6 @@
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
-import stdiomask  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
+import getpass  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
 import time
 
 def humanoHumano():
@@ -92,7 +92,8 @@ def humanoBot():
     pontb = 0
     ponte = 0
     cnt = 0
-
+    tabela = ''
+    i = 0
 
     os.system('cls')
     print('Você selecionou o modo: "🤖 JOGAR CONTRA BOT 🤖"')
@@ -114,12 +115,13 @@ def humanoBot():
       
 
         os.system('cls')
+        i +=1
         print('Você pode escolher entre: \n'
-              '1. ✊🏻 \n'
-              '2. 🖐🏻 \n'
-              '3. ✌🏻')
+              '1. ✊ \n'
+              '2. 🖐️ \n'
+              '3. ✌️')
         while True:
-            rj = int(stdiomask.getpass(prompt='😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n', mask='.'))
+            rj = int((getpass.getpass('😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n')))
             if rj == 1 or rj == 2 or rj == 3:
                 break
             else:
@@ -129,41 +131,29 @@ def humanoBot():
 
         rb = random.randrange(1, 4)
         if rb == 1:
-            print('🤖👾Eu joguei pedra ✊🏻 \n')
+            print('🤖👾Eu joguei pedra ✊ \n')
         elif rb == 2:
-            print('🤖👾Eu joguei papel 🖐🏻 \n')
+            print('🤖👾Eu joguei papel 🖐️ \n')
         elif rb == 3:
-            print('🤖👾Eu joguei tesoura ✌🏻 \n')
+            print('🤖👾Eu joguei tesoura ✌️ \n')
 
-      
         if rj == rb:
             print(f'😱NOS EMPATAMOS😩, VAMOS MAIS UMA {j1} QUERO GANHAR DE VOCÊ👾🤩😜')
             ponte +=1
+            tabela += f'{i} - EMPATE\n'
             continue
-        elif rj == 1 and rb == 3:
+        elif rj == 1 and rb == 3 or rj == 2 and rb == 1 or rj == 3 and rb == 2:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
             pontj +=1
+            tabela += f'{i} - {j1} GANHOU\n'
             continue
-        elif rj == 2 and rb == 1:
-            print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
-            pontj +=1
-            continue
-        elif rj == 3 and rb == 2:
-            print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
-            pontj +=1
-            continue
-        elif rb == 1 and rj == 3:
+
+        elif rb == 1 and rj == 3 or rb == 2 and rj == 1 or rb == 3 and rj == 2:
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
             pontb +=1
+            tabela += f'{i} - 🤖 GANHOU\n'
             continue
-        elif rb == 2 and rj == 1:
-            print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
-            pontb +=1
-            continue
-        elif rb == 3 and rj == 2:
-            print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
-            pontb +=1
-            continue
+
     
 
     os.system('cls')
@@ -184,29 +174,44 @@ def humanoBot():
     else:
         print(f'1º BOT🤖 {pontb} - {j1}😐 {pontj}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
-  
+    
+    t = str(input('Deseja acessar seu historico de partidas? (S/N)\n'))
+    if (t.lower()).strip() == 's':
+        print('=-'*30)
+        print('HISTÓRICO DE PARTIDAS'.center(60))
+        print('=-'*30)
+        print(tabela)
+    else:
+        print('Obrigado por jogar!')
 
 def BotBot():
     pontj = 0  #🤖
     pontb = 0  #👾
     ponte = 0
     cnt = 0
-
-
+    tabela = ''
+    i = 0
     os.system('cls')
     print('Você selecionou o modo: "👾 OBSERVAR DOIS BOTS 🤖"')
-    time.sleep(0.5)
+    time.sleep(1)
     os.system('cls')
     print(f'Olá! \n''Eu sou o BOT🤖!, irei ganhar da minha irmã que é uma 🤬!🧐 \n')
-    time.sleep(0.5)
+    time.sleep(1)
     print('Oiiii! \n''Eu sou a Bot👾!, meu irmão é meio iritadinho, mas eu não vou me intimidar com perdedores!🥱😇')
     
     while True:
         if cnt == 0:
             cnt +=1
-            v1 = str(input('Vamos COMEÇAR? (Y/N)\n'))
-            if (v1.lower()).strip() == 'n':
-                break
+            while True:
+                v1 = str(input('Vamos COMEÇAR? (Y/N)\n'))
+                if (v1.lower()).strip() == 'y' or (v1.lower()).strip() == 'n':
+                    break
+                else:
+                    print('Resposta inválida. Por favor, digite Y ou N\n')
+                    continue
+            
+        if (v1.lower()).strip() == 'n':
+            break
         else:
             time.sleep(2)
             os.system('cls')
@@ -216,90 +221,59 @@ def BotBot():
       
 
         os.system('cls')
+        i +=1
         print('As jogadas posiveis são: \n'
-              '1. ✊🏻 \n'
-              '2. 🖐🏻 \n'
-              '3. ✌🏻')
+              '1. ✊ \n'
+              '2. 🖐️ \n'
+              '3. ✌️')
         
         time.sleep(1)
         rb1 = random.randrange(1, 4)
         if rb1 == 1:
-            print('🤖Eu joguei pedra ✊🏻')
+            print('🤖Eu joguei pedra ✊')
         elif rb1 == 2:
-            print('🤖Eu joguei papel 🖐🏻 \n')
+            print('🤖Eu joguei papel 🖐️ \n')
         elif rb1 == 3:
-            print('🤖Eu joguei tesoura ✌🏻 \n')
+            print('🤖Eu joguei tesoura ✌️ \n')
 
         time.sleep(1)
         rb2 = random.randrange(1, 4)
         if rb2 == 1:
-            print('👾Eu joguei pedra ✊🏻\n')
+            print('👾Eu joguei pedra ✊\n')
         elif rb2 == 2:
-            print('👾Eu joguei papel 🖐🏻 \n')
+            print('👾Eu joguei papel 🖐️ \n')
         elif rb2 == 3:
-            print('👾Eu joguei tesoura ✌🏻 \n')
+            print('👾Eu joguei tesoura ✌️ \n')
 
       
         if rb1 == rb2:
             print('😱NOS EMPATAMOS😩, 🤖VAMOS MAIS UMA QUERO GANHAR DE VOCÊ🤩😜')
-            time.sleep(0.5)
+            time.sleep(1)
             print('👾FICA CALMINHO, PORQUE PERDEDOR NÃO TEM LUGAR DE FALA🥱😎')
-            time.sleep(0.5)
+            time.sleep(1)
             print('🤖 😲')
             ponte +=1
+            tabela += f'{i} - 👾EMPATE🤖\n'
             continue
-        elif rb1 == 1 and rb2 == 3:
+        elif rb1 == 1 and rb2 == 3 or rb1 == 2 and rb2 == 1 or rb1 == 3 and rb2 == 2:
             print('🤖GANHEI🤩😎😘!!!!!''QUEM É O PERDEDOR AGORA🙄😏😈')
-            time.sleep(0.5)
+            time.sleep(1)
             print('👾Você ganhou de mim!😡🤬😫''🙏🏻VAMOS MAIS UMA RODADA!!!')
-            time.sleep(0.5)
+            time.sleep(1)
             print('🤖FICO IRITADINHA😴🤪🥴')
             pontj +=1
+            tabela += f'{i} - 🤖 GANHOU\n'
             continue
-        elif rb1 == 2 and rb2 == 1:
-            print('🤖GANHEI🤩😎😘!!!!!''QUEM É O PERDEDOR AGORA🙄😏😈')
-            time.sleep(0.5)
-            print('👾Você ganhou de mim!😡🤬😫''🙏🏻VAMOS MAIS UMA RODADA!!!')
-            time.sleep(0.5)
-            print('🤖FICO IRITADINHA😴🤪🥴')
-            pontj +=1
-            continue
-        elif rb1 == 3 and rb2 == 2:
-            print('🤖GANHEI🤩😎😘!!!!!''QUEM É O PERDEDOR AGORA🙄😏😈')
-            time.sleep(0.5)
-            print('👾Você ganhou de mim!😡🤬😫''🙏🏻VAMOS MAIS UMA RODADA!!!')
-            time.sleep(0.5)
-            print('🤖FICO IRITADINHA😴🤪🥴')
-            pontj +=1
-            continue
-        elif rb2 == 1 and rb1 == 3:
+        elif rb2 == 1 and rb1 == 3 or rb2 == 2 and rb1 == 1 or rb2 == 3 and rb1 == 2:
             print('👾Você é REALMENTE MUITO RUIM !!!!, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪'
                   'Ainda mais para alguém igual você😘😎')
-            time.sleep(0.5)
+            time.sleep(1)
             print('🤖VOCÊ...🙀😤')
-            time.sleep(0.5)
+            time.sleep(1)
             print('👾Seu silencio é musica para meus ouvidos roboticos😏😎')
             pontb +=1
+            tabela += f'{i} - 👾 GANHOU\n'
             continue
-        elif rb2 == 2 and rb1 == 1:
-            print('👾Você é REALMENTE MUITO RUIM !!!!, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪'
-                  'Ainda mais para alguém igual você😘😎')
-            time.sleep(0.5)
-            print('🤖VOCÊ...🙀😤')
-            time.sleep(0.5)
-            print('👾Seu silencio é musica para meus ouvidos roboticos😏😎')
-            pontb +=1
-            continue
-        elif rb2 == 3 and rb1 == 2:
-            print('👾Você é REALMENTE MUITO RUIM !!!!, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪'
-                  'Ainda mais para alguém igual você😘😎')
-            time.sleep(0.5)
-            print('🤖VOCÊ...🙀😤')
-            time.sleep(0.5)
-            print('👾Seu silencio é musica para meus ouvidos roboticos😏😎')
-            pontb +=1
-            continue
-    
 
     os.system('cls')
     print(f'🤖👾Obrigado por deixar a gente jogar🤗🤩 \n')
@@ -319,9 +293,14 @@ def BotBot():
         print(f'1º 😕 BOT🤖 {pontj} - 😐 BOT👾 {pontb}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
 
-
-
-
+    t = str(input('Você quer ver o histórico de partidas? (S/N) '))
+    if (t.lower()).strip() == 's':
+        print('=-'*30)
+        print('HISTÓRICO DE PARTIDAS'.center(60))
+        print('=-'*30)
+        print(tabela)
+    else:
+        print('Obrigado por jogar!')
 
 print('OPÇÕES DE JOGO'.center(60))
 print('=-'*30)
