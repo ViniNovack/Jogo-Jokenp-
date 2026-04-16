@@ -146,6 +146,7 @@ def humanoHumano():
             print("\nBora pra mais uma!")
             
 
+humanoHumano()
 
 def humanoBot():
     pontj = 0
