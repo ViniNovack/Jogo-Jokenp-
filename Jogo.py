@@ -1,10 +1,6 @@
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
-<<<<<<< HEAD
 import getpass  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
-=======
-# import stdiomask  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
->>>>>>> 89b2a713279705873cb84a9cce445b0238aaf804
 import time
 import getpass
 
@@ -146,8 +142,6 @@ def humanoHumano():
             print("\nBora pra mais uma!")
             
 
-humanoHumano()
-
 def humanoBot():
     pontj = 0
     pontb = 0
@@ -222,7 +216,7 @@ def humanoBot():
           'Foi um prazer conhacer você😝')
     time.sleep(4)
     os.system('cls')
-    print('🙈 TABELA DE PONTUAÇÃO 🙊'.center(60))
+    print('✿ 。TABELA DE PONTUAÇÃO 。✿'.center(60))
     print('=-'*30)
     if pontj > pontb:
         print(f'1º {j1}😁 {pontj}'.center(10))
@@ -235,18 +229,15 @@ def humanoBot():
     else:
         print(f'1º BOT🤖 {pontb} - {j1}😐 {pontj}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
-<<<<<<< HEAD
     
     t = str(input('Deseja acessar seu historico de partidas? (S/N)\n'))
     if (t.lower()).strip() == 's':
         print('=-'*30)
-        print('HISTÓRICO DE PARTIDAS'.center(60))
+        print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
         print('=-'*30)
         print(tabela)
     else:
         print('Obrigado por jogar!')
-=======
->>>>>>> 89b2a713279705873cb84a9cce445b0238aaf804
 
 def BotBot():
     pontj = 0  #🤖
@@ -343,7 +334,7 @@ def BotBot():
     print(f'🤖👾Obrigado por deixar a gente jogar🤗🤩 \n')
     time.sleep(4)
     os.system('cls')
-    print('🙈 TABELA DE PONTUAÇÃO 🙊'.center(60))
+    print('✿ 。TABELA DE PONTUAÇÃO 。✿'.center(60))
     print('=-'*30)
     if pontj > pontb:
         print(f'1º 😎 BOT🤖 {pontj}'.center(10))
@@ -360,7 +351,7 @@ def BotBot():
     t = str(input('Você quer ver o histórico de partidas? (S/N) '))
     if (t.lower()).strip() == 's':
         print('=-'*30)
-        print('HISTÓRICO DE PARTIDAS'.center(60))
+        print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
         print('=-'*30)
         print(tabela)
     else:
