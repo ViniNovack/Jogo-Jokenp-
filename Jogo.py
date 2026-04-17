@@ -27,8 +27,9 @@ class Cores:
     # LIMPAR
     limpar = '\033[m'
 
+g1 = Cores()
 
-print('OPÇÕES DE JOGO'.center(60))
+print(f'{g1.magenta}{g1.fundo_ciano} OPÇÕES DE JOGO {g1.limpar}'.center(60))
 print('=-'*30)
 print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
 print('2. 😀 JOGAR CONTRA AMIGO 😁'.center(10))
@@ -36,7 +37,7 @@ print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
 print('=-'*30)
 
 
-c = int(input('Escolha uma opção de jogo: '))
+c = int(input('>>> Escolha uma opção de jogo: '))
 
 if c == 1: # humanoBot()
     pontj = 0
@@ -53,17 +54,35 @@ if c == 1: # humanoBot()
     print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐 \n')
     while True:
         if cnt == 0:
-            cnt +=1
-            v1 = str(input('Vamos COMEÇAR? (Y/N)\n'))
-            if (v1.lower()).strip() == 'n':
-                break
+            cnt += 1 
+            while True:
+                v1 = str(input('Vamos COMEÇAR? (Y/N)\n'))
+                if (v1.lower()).strip() == 'n':
+                    sair = True
+                    break
+                elif (v1.lower()).strip() == 'y':
+                    sair = False
+                    break
+                else:
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+                    continue
         else:
             time.sleep(2)
             os.system('cls')
-            v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
-            if (v2.lower()).strip() == 'n':
-                break
-      
+            while True:
+                v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
+                if (v2.lower()).strip() == 'n':
+                    sair = True
+                    break
+                elif (v2.lower()).strip() == 'y':
+                    sair = False
+                    break
+                else:
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+                    continue
+        
+        if sair:
+            break
 
         os.system('cls')
         i +=1
@@ -106,13 +125,12 @@ if c == 1: # humanoBot()
             continue
 
     
-
     os.system('cls')
     print(f'Obrigado por jogar {j1}🤗🤩 \n'
           'Foi um prazer conhacer você😝')
     time.sleep(4)
     os.system('cls')
-    print('✿ 。TABELA DE PONTUAÇÃO 。✿'.center(60))
+    print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
     print('=-'*30)
     if pontj > pontb:
         print(f'1º {j1}😁 {pontj}'.center(10))
@@ -126,14 +144,20 @@ if c == 1: # humanoBot()
         print(f'1º BOT🤖 {pontb} - {j1}😐 {pontj}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
     
-    t = str(input('Deseja acessar seu historico de partidas? (S/N)\n'))
-    if (t.lower()).strip() == 's':
-        print('=-'*30)
-        print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
-        print('=-'*30)
-        print(tabela)
-    else:
-        print('Obrigado por jogar!')
+    while True:
+        t = str(input('Deseja acessar seu historico de partidas? (Y/N)\n'))
+        if (t.lower()).strip() == 's':
+            print('=-'*30)
+            print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
+            print('=-'*30)
+            print(tabela)
+            break
+        elif (t.lower()).strip() == 'n':
+            print('Obrigado por jogar!')
+            break
+        else:
+            print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+            continue
 
 elif c == 2: # humanoHumano()
     
@@ -228,25 +252,25 @@ elif c == 2: # humanoHumano()
         
         if jogada1 == jogada2:
 
-            print(f"\n» EMPATE «".center(40))
+            print(f"\n{g1.amarelo} » EMPATE « {g1.limpar}".center(40))
             print(f"\nQue fofinhos, vocês pensam igual! Ambos jogaram {jogada1Tipo}!")
 
-            rodadas += f"\n• {i} - Empate"
+            rodadas += f"\n{g1.amarelo} • {i} - Empate {g1.limpar}"
 
             pontE += 1
         elif (jogada1 == 1 and jogada2 == 3) or (jogada1 == 2 and jogada2 == 1) or (jogada1 == 3 and jogada2 == 2):
-            print(f"\n☆ Vitóooria de {j1}! ☆".center(40))
+            print(f"\n{g1.verde} ☆ Vitóooria de {j1}! ☆ {g1.limpar}".center(40))
             print(f"\n{jogada1Tipo} ganha de {jogada2Tipo}, {j2}..")
 
             pontV1 += 1
-            rodadas += f"\n• {i} - Vitória de ☆ {j1} ☆"
+            rodadas += f"\n {g1.verde} • {i} - Vitória de ☆ {j1} ☆ {g1.limpar}"
 
         else:
-            print(f"\n☆ Vitóooria de {j2}! ☆".center(40))
+            print(f"\n{g1.azul} ☆ Vitóooria de {j2}! ☆ {g1.limpar}".center(40))
             print(f"\n{jogada2Tipo} ganha de {jogada1Tipo}, {j1}..")
 
             pontV2 += 1
-            rodadas += f"\n• {i} - Vitória de ☆ {j2} ☆"
+            rodadas += f"\n {g1.azul} • {i} - Vitória de ☆ {j2} ☆ {g1.limpar}"
 
         jogarNovamente = input("\nDeseja jogar novamente? (s/n): ")
         print(jogarNovamente)
@@ -267,7 +291,7 @@ elif c == 2: # humanoHumano()
 
             if opcao == "s":
                 print('-'*60)
-                print("✿ 。HISTÓRICO DE PARTIDAS 。✿".center(60))
+                print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
                 print(rodadas) 
                 print('-'*60)
             break
@@ -293,24 +317,36 @@ elif c == 3: # BotBot()
     
     while True:
         if cnt == 0:
-            cnt +=1
+            cnt += 1
             while True:
                 v1 = str(input('Vamos COMEÇAR? (Y/N)\n'))
-                if (v1.lower()).strip() == 'y' or (v1.lower()).strip() == 'n':
+                if (v1.lower()).strip() == 'n':
+                    sair = True
+                    break
+                elif (v1.lower()).strip() == 'y':
+                    sair = False
                     break
                 else:
-                    print('Resposta inválida. Por favor, digite Y ou N\n')
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
                     continue
             
-        if (v1.lower()).strip() == 'n':
-            break
         else:
             time.sleep(2)
             os.system('cls')
-            v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
-            if (v2.lower()).strip() == 'n':
-                break
-      
+            while True:
+                v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
+                if (v2.lower()).strip() == 'n':
+                    sair = True
+                    break
+                elif (v2.lower()).strip() == 'y':
+                    sair = False
+                    break
+                else:
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+                    continue
+        
+        if sair:
+            break
 
         os.system('cls')
         i +=1
@@ -371,7 +407,7 @@ elif c == 3: # BotBot()
     print(f'🤖👾Obrigado por deixar a gente jogar🤗🤩 \n')
     time.sleep(4)
     os.system('cls')
-    print('✿ 。TABELA DE PONTUAÇÃO 。✿'.center(60))
+    print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
     print('=-'*30)
     if pontj > pontb:
         print(f'1º 😎 BOT🤖 {pontj}'.center(10))
@@ -388,11 +424,11 @@ elif c == 3: # BotBot()
     t = str(input('Você quer ver o histórico de partidas? (S/N) '))
     if (t.lower()).strip() == 's':
         print('=-'*30)
-        print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
+        print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
         print('=-'*30)
         print(tabela)
     else:
         print('Obrigado por jogar!')
 
 else:
-    print('❌TENTE DE NOVO, resposta INVALIDA❌')
+    print(f'❌{g1.vermelho} TENTE DE NOVO, resposta INVALIDA {g1.limpar}❌')
