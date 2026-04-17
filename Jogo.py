@@ -1,148 +1,20 @@
 import random
 import os       #(LIMPA O TERMINAL) (os.system('cls'))
-import getpass  #(ESCREVE IGUAL SENHA) (stdiomask.getpass(prompt='Escolha uma opção de jogo: \n', mask='.'))
 import time
 import getpass
 
-def humanoHumano():
 
-    i = 0
-    rodadas = ""
-    pontE = 0
-    pontV1 = 0
-    pontV2 = 0
+print('OPÇÕES DE JOGO'.center(60))
+print('=-'*30)
+print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
+print('2. 😀 JOGAR CONTRA AMIGO 😁'.center(10))
+print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
+print('=-'*30)
 
-    print("\nVocê selecionou o modo: HUMANO x HUMANO"
-          "\nQuem começará jogando?")
 
-    j1 = input("\n» Digite o nome do Jogador 1: ")
+c = int(input('Escolha uma opção de jogo: '))
 
-    print(f"\nOlá {j1}! Contra quem você irá jogar?")
-
-    j2 = input("\n» Digite o nome do Jogador 2: ")
-
-    while True:
-        i += 1
-
-        print("\nEstamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
-            "\n1 - pedra"
-            "\n2 - papel"
-            "\n3 - tesoura")
-        
-        jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
-
-        # Verficação ----------------------------------------------
-
-        while True:
-            if jogada1.isdigit():
-                jogada1 = int(jogada1)
-
-                if jogada1 != 1 and jogada1 != 2 and jogada1 != 3:
-                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
-                            "\n\n1 - pedra"
-                            "\n2 - papel"
-                            "\n3 - tesoura")
-            
-                    jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
-                else:
-                    break
-            else:
-                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
-                            "\n\n1 - pedra"
-                            "\n2 - papel"
-                            "\n3 - tesoura")
-            
-                jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
-    
-
-        jogada2 = (getpass.getpass(f"\nAgora é sua vez {j2}, faça sua jogada: "))
-
-        while True:
-            if jogada2.isdigit():
-                jogada2 = int(jogada2)
-
-                if jogada2 != 1 and jogada2 != 2 and jogada2 != 3:
-                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
-                            "\n\n1 - pedra"
-                            "\n2 - papel"
-                            "\n3 - tesoura")
-            
-                    jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
-                else:
-                    break
-            else:
-                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
-                            "\n\n1 - pedra"
-                            "\n2 - papel"
-                            "\n3 - tesoura")
-            
-                jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
-
-            # -----------------------------------------------------------------
-        
-        if jogada1 == 1:
-            jogada1Tipo = "pedra"
-        elif jogada1 == 2:
-            jogada1Tipo = "papel"
-        else:
-            jogada1Tipo = "tesoura"
-
-        if jogada2 == 1:
-            jogada2Tipo = "pedra"
-        elif jogada2 == 2:
-            jogada2Tipo = "papel"
-        else:
-            jogada2Tipo = "tesoura"
-        
-        
-        if jogada1 == jogada2:
-
-            print(f"\n» EMPATE «".center(40))
-            print(f"\nQue fofinhos, vocês pensam igual! Ambos jogaram {jogada1Tipo}!")
-
-            rodadas += f"\n{i} - Empate"
-
-            pontE += 1
-        elif (jogada1 == 1 and jogada2 == 3) or (jogada1 == 2 and jogada2 == 1) or (jogada1 == 3 and jogada2 == 2):
-            print(f"\n☆ Vitóooria de {j1}! ☆".center(40))
-            print(f"\n{jogada1Tipo} ganha de {jogada2Tipo}, {j2}..")
-
-            pontV1 += 1
-            rodadas += f"\n{i} - Vitória de ☆ {j1} ☆"
-
-        else:
-            print(f"\n☆ Vitóooria de {j2}! ☆".center(40))
-            print(f"\n{jogada2Tipo} ganha de {jogada1Tipo}, {j1}..")
-
-            pontV2 += 1
-            rodadas += f"\n{i} - Vitória de ☆ {j2} ☆"
-
-        jogarNovamente = input("\nDeseja jogar novamente? (s/n): ")
-        print(jogarNovamente)
-
-        while jogarNovamente.lower() != "s" and jogarNovamente.lower() != "n":
-            jogarNovamente = input("\nOpção inválida. Deseja jogar novamente? (s/n): ")
-        
-        if jogarNovamente.lower() == "n":
-            print("RESULTADOS".center(60))
-            print(f"{j1} {pontV1} X {pontV2} {j2}\nEmpates: {pontE}")
-
-            opcao = input("\nDeseja acessar o histórico de partidas? (s/n): ")
-
-            while opcao != "n" and opcao != "s":
-                opcao = input("\nOpção inávlida. Deseja acessar o histórico de partidas? (s/n): ")
-
-            if opcao == "s":
-                print('-'*60)
-                print("✿ 。HISTÓRICO DE PARTIDAS 。✿".center(60))
-                print(rodadas) 
-                print('-'*60)
-            break
-        else:
-            print("\nBora pra mais uma!")
-            
-
-def humanoBot():
+if c == 1: # humanoBot()
     pontj = 0
     pontb = 0
     ponte = 0
@@ -239,7 +111,148 @@ def humanoBot():
     else:
         print('Obrigado por jogar!')
 
-def BotBot():
+elif c == 2: # humanoHumano()
+    
+    i = 0
+    rodadas = ""
+    pontE = 0
+    pontV1 = 0
+    pontV2 = 0
+
+    print("\nVocê selecionou o modo: HUMANO x HUMANO"
+          "\nQuem começará jogando?")
+
+    j1 = input("\n» Digite o nome do Jogador 1: ")
+
+    print(f"\nOlá {j1}! Contra quem você irá jogar?")
+
+    j2 = input("\n» Digite o nome do Jogador 2: ")
+
+    while True:
+        i += 1
+
+        print("\nEstamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
+            "\n1 - pedra"
+            "\n2 - papel"
+            "\n3 - tesoura")
+        
+        jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+
+        # Verficação ----------------------------------------------
+
+        while True:
+            if jogada1.isdigit():
+                jogada1 = int(jogada1)
+
+                if jogada1 != 1 and jogada1 != 2 and jogada1 != 3:
+                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                            "\n\n1 - pedra"
+                            "\n2 - papel"
+                            "\n3 - tesoura")
+            
+                    jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+                else:
+                    break
+            else:
+                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                            "\n\n1 - pedra"
+                            "\n2 - papel"
+                            "\n3 - tesoura")
+            
+                jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+    
+
+        jogada2 = (getpass.getpass(f"\nAgora é sua vez {j2}, faça sua jogada: "))
+
+        while True:
+            if jogada2.isdigit():
+                jogada2 = int(jogada2)
+
+                if jogada2 != 1 and jogada2 != 2 and jogada2 != 3:
+                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                            "\n\n1 - pedra"
+                            "\n2 - papel"
+                            "\n3 - tesoura")
+            
+                    jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
+                else:
+                    break
+            else:
+                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                            "\n\n1 - pedra"
+                            "\n2 - papel"
+                            "\n3 - tesoura")
+            
+                jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
+
+            # -----------------------------------------------------------------
+        
+        if jogada1 == 1:
+            jogada1Tipo = "pedra"
+        elif jogada1 == 2:
+            jogada1Tipo = "papel"
+        else:
+            jogada1Tipo = "tesoura"
+
+        if jogada2 == 1:
+            jogada2Tipo = "pedra"
+        elif jogada2 == 2:
+            jogada2Tipo = "papel"
+        else:
+            jogada2Tipo = "tesoura"
+        
+        
+        if jogada1 == jogada2:
+
+            print(f"\n» EMPATE «".center(40))
+            print(f"\nQue fofinhos, vocês pensam igual! Ambos jogaram {jogada1Tipo}!")
+
+            rodadas += f"\n• {i} - Empate"
+
+            pontE += 1
+        elif (jogada1 == 1 and jogada2 == 3) or (jogada1 == 2 and jogada2 == 1) or (jogada1 == 3 and jogada2 == 2):
+            print(f"\n☆ Vitóooria de {j1}! ☆".center(40))
+            print(f"\n{jogada1Tipo} ganha de {jogada2Tipo}, {j2}..")
+
+            pontV1 += 1
+            rodadas += f"\n• {i} - Vitória de ☆ {j1} ☆"
+
+        else:
+            print(f"\n☆ Vitóooria de {j2}! ☆".center(40))
+            print(f"\n{jogada2Tipo} ganha de {jogada1Tipo}, {j1}..")
+
+            pontV2 += 1
+            rodadas += f"\n• {i} - Vitória de ☆ {j2} ☆"
+
+        jogarNovamente = input("\nDeseja jogar novamente? (s/n): ")
+        print(jogarNovamente)
+
+        while jogarNovamente.lower() != "s" and jogarNovamente.lower() != "n":
+            jogarNovamente = input("\nOpção inválida. Deseja jogar novamente? (s/n): ")
+        
+        if jogarNovamente.lower() == "n":
+            time.sleep(1)
+            os.system('cls')
+            print("RESULTADOS".center(60))
+            print(f"\n→ {j1} • {pontV1} X {pontV2} • {j2}\n→ Empates: {pontE}")
+
+            opcao = input("\nDeseja acessar o histórico de partidas? (s/n): ")
+
+            while opcao != "n" and opcao != "s":
+                opcao = input("\nOpção inávlida. Deseja acessar o histórico de partidas? (s/n): ")
+
+            if opcao == "s":
+                print('-'*60)
+                print("✿ 。HISTÓRICO DE PARTIDAS 。✿".center(60))
+                print(rodadas) 
+                print('-'*60)
+            break
+        else:
+            print("\nBora pra mais uma!")
+            time.sleep(2)
+            os.system('cls')
+            
+elif c == 3: # BotBot()
     pontj = 0  #🤖
     pontb = 0  #👾
     ponte = 0
@@ -357,20 +370,5 @@ def BotBot():
     else:
         print('Obrigado por jogar!')
 
-print('OPÇÕES DE JOGO'.center(60))
-print('=-'*30)
-print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
-print('2. 😀 JOGAR CONTRA AMIGO 😁'.center(10))
-print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
-print('=-'*30)
-
-
-c = int(input('Escolha uma opção de jogo: \n'))
-if c == 1:
-    humanoBot()
-elif c == 2:
-    humanoHumano()
-elif c == 3:
-    BotBot()
 else:
     print('❌TENTE DE NOVO, resposta INVALIDA❌')
