@@ -110,18 +110,18 @@ if c == 1: # humanoBot()
         if rj == rb:
             print(f'😱NOS EMPATAMOS😩, VAMOS MAIS UMA {j1} QUERO GANHAR DE VOCÊ👾🤩😜')
             ponte +=1
-            tabela += f'{i} - EMPATE\n'
+            tabela += f'{i} - {g1.amarelo}EMPATE{g1.limpar}\n'
             continue
         elif rj == 1 and rb == 3 or rj == 2 and rb == 1 or rj == 3 and rb == 2:
             print('🤖👾Você ganhou de mim!😡🤬😫,VAMOS MAIS UMA RODADA!!!')
             pontj +=1
-            tabela += f'{i} - {j1} GANHOU\n'
+            tabela += f'{i} - {j1} {g1.verde}GANHOU{g1.limpar}\n'
             continue
 
         elif rb == 1 and rj == 3 or rb == 2 and rj == 1 or rb == 3 and rj == 2:
             print('🤖👾Você é MUITO RUIM, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪')
             pontb +=1
-            tabela += f'{i} - 🤖 GANHOU\n'
+            tabela += f'{i} - 🤖 {g1.azul}GANHOU{g1.limpar}\n'
             continue
 
     
@@ -381,7 +381,7 @@ elif c == 3: # BotBot()
             time.sleep(1)
             print('🤖 😲')
             ponte +=1
-            tabela += f'{i} - 👾EMPATE🤖\n'
+            tabela += f'{i} - 👾{g1.amarelo}EMPATE{g1.limpar}🤖\n'
             continue
         elif rb1 == 1 and rb2 == 3 or rb1 == 2 and rb2 == 1 or rb1 == 3 and rb2 == 2:
             print('🤖GANHEI🤩😎😘!!!!!''QUEM É O PERDEDOR AGORA🙄😏😈')
@@ -390,7 +390,7 @@ elif c == 3: # BotBot()
             time.sleep(1)
             print('🤖FICO IRITADINHA😴🤪🥴')
             pontj +=1
-            tabela += f'{i} - 🤖 GANHOU\n'
+            tabela += f'{i} - 🤖 {g1.verde}GANHOU{g1.limpar}\n'
             continue
         elif rb2 == 1 and rb1 == 3 or rb2 == 2 and rb1 == 1 or rb2 == 3 and rb1 == 2:
             print('👾Você é REALMENTE MUITO RUIM !!!!, mas não se sinta mal minhas abilidades podem ser muito intimidadoras 🥱😝🤪'
@@ -400,7 +400,7 @@ elif c == 3: # BotBot()
             time.sleep(1)
             print('👾Seu silencio é musica para meus ouvidos roboticos😏😎')
             pontb +=1
-            tabela += f'{i} - 👾 GANHOU\n'
+            tabela += f'{i} - 👾 {g1.azul}GANHOU{g1.limpar}\n'
             continue
 
     os.system('cls')
