@@ -3,6 +3,30 @@ import os       #(LIMPA O TERMINAL) (os.system('cls'))
 import time
 import getpass
 
+class Cores:
+    # Cores de texto para o terminal
+    branco = '\033[30m'
+    vermelho = '\033[31m'
+    verde = '\033[32m'
+    amarelo = '\033[33m'
+    azul = '\033[34m'
+    magenta = '\033[35m'
+    ciano = '\033[36m'
+    cinza = '\033[37m'
+
+    # Cores de fundo para o terminal
+    fundo_preto = '\033[40m'
+    fundo_vermelho = '\033[41m'
+    fundo_verde = '\033[42m'
+    fundo_amarelo = '\033[43m'
+    fundo_azul = '\033[44m'
+    fundo_magenta = '\033[45m'
+    fundo_ciano = '\033[46m'
+    fundo_branco = '\033[47m'
+
+    # LIMPAR
+    limpar = '\033[m'
+
 
 print('OPÇÕES DE JOGO'.center(60))
 print('=-'*30)
