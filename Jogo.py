@@ -29,6 +29,7 @@ class Cores:
 
 g1 = Cores()
 
+os.system('cls')
 print(f'{g1.magenta}{g1.fundo_ciano} OPÇÕES DE JOGO {g1.limpar}'.center(60))
 print('=-'*30)
 print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
@@ -90,14 +91,28 @@ if c == 1: # humanoBot()
               '1. ✊ \n'
               '2. 🖐️ \n'
               '3. ✌️')
-        while True:
-            rj = int((getpass.getpass('😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n')))
-            if rj == 1 or rj == 2 or rj == 3:
-                break
-            else:
-                print('Esse valor é INVALIDO😵🥴, tente de novo considerando os números 1, 2 e 3')
-                continue
+        
+        rj = ((getpass.getpass('😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n')))
 
+        # Verficação ----------------------------------------------
+
+        while True:
+            if rj.isdigit():
+                rj = int(rj)
+
+                if rj != 1 and rj != 2 and rj != 3:
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números 1, 2 e 3\n{g1.limpar}')
+                        
+                    rj = ((getpass.getpass('😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n')))
+                else:
+                    break
+            else:
+                print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números 1, 2 e 3\n{g1.limpar}')
+            
+                rj = ((getpass.getpass('😎 FAÇA SUA JOGADA DE VENCEDOR 🤩: \n')))
+                continue
+    
+        # --------------------------------------------------------
 
         rb = random.randrange(1, 4)
         if rb == 1:
@@ -127,7 +142,7 @@ if c == 1: # humanoBot()
     
     os.system('cls')
     print(f'Obrigado por jogar {j1}🤗🤩 \n'
-          'Foi um prazer conhacer você😝')
+          'Foi um prazer conhecer você😝')
     time.sleep(4)
     os.system('cls')
     print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
@@ -146,7 +161,7 @@ if c == 1: # humanoBot()
     
     while True:
         t = str(input('Deseja acessar seu historico de partidas? (Y/N)\n'))
-        if (t.lower()).strip() == 's':
+        if (t.lower()).strip() == 'y':
             print('=-'*30)
             print('✿ 。HISTÓRICO DE PARTIDAS 。✿'.center(60))
             print('=-'*30)
@@ -156,7 +171,7 @@ if c == 1: # humanoBot()
             print('Obrigado por jogar!')
             break
         else:
-            print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+            print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando as letras (Y/N).{g1.limpar}')
             continue
 
 elif c == 2: # humanoHumano()
@@ -177,6 +192,8 @@ elif c == 2: # humanoHumano()
     j2 = input("\n» Digite o nome do Jogador 2: ")
 
     while True:
+        time.sleep(2)
+        os.system("cls")
         i += 1
 
         print("\nEstamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
@@ -193,7 +210,9 @@ elif c == 2: # humanoHumano()
                 jogada1 = int(jogada1)
 
                 if jogada1 != 1 and jogada1 != 2 and jogada1 != 3:
-                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                    os.system("cls")
+                    print(f"\n{g1.vermelho}Você selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada.{g1.limpar}"
+
                             "\n\n1 - pedra"
                             "\n2 - papel"
                             "\n3 - tesoura")
@@ -202,13 +221,15 @@ elif c == 2: # humanoHumano()
                 else:
                     break
             else:
-                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                os.system("cls")
+                print(f"\n{g1.vermelho}Você selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada.{g1.limpar}"
+
                             "\n\n1 - pedra"
                             "\n2 - papel"
                             "\n3 - tesoura")
             
                 jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
-    
+                        
 
         jogada2 = (getpass.getpass(f"\nAgora é sua vez {j2}, faça sua jogada: "))
 
@@ -217,7 +238,9 @@ elif c == 2: # humanoHumano()
                 jogada2 = int(jogada2)
 
                 if jogada2 != 1 and jogada2 != 2 and jogada2 != 3:
-                    print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                    os.system("cls")
+                    print(f"\n{g1.vermelho}Você selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada.{g1.limpar}"
+
                             "\n\n1 - pedra"
                             "\n2 - papel"
                             "\n3 - tesoura")
@@ -226,13 +249,15 @@ elif c == 2: # humanoHumano()
                 else:
                     break
             else:
-                print("\nVocê selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada."
+                os.system("cls")
+                print(f"\n{g1.vermelho}Você selecionou uma opção INVÁLIDA! Selecione uma das opções abaixo para fazer sua jogada.{g1.limpar}"
+
                             "\n\n1 - pedra"
                             "\n2 - papel"
                             "\n3 - tesoura")
             
                 jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
-
+        
             # -----------------------------------------------------------------
         
         if jogada1 == 1:
@@ -272,10 +297,10 @@ elif c == 2: # humanoHumano()
             pontV2 += 1
             rodadas += f"\n {g1.azul} • {i} - Vitória de ☆ {j2} ☆ {g1.limpar}"
 
-        jogarNovamente = input("\nDeseja jogar novamente? (s/n): ")
+        jogarNovamente = input("\nDeseja jogar novamente? (Y/N): ")
         print(jogarNovamente)
 
-        while jogarNovamente.lower() != "s" and jogarNovamente.lower() != "n":
+        while jogarNovamente.lower() != "y" and jogarNovamente.lower() != "n":
             jogarNovamente = input("\nOpção inválida. Deseja jogar novamente? (s/n): ")
         
         if jogarNovamente.lower() == "n":
@@ -284,12 +309,12 @@ elif c == 2: # humanoHumano()
             print("RESULTADOS".center(60))
             print(f"\n→ {j1} • {pontV1} X {pontV2} • {j2}\n→ Empates: {pontE}")
 
-            opcao = input("\nDeseja acessar o histórico de partidas? (s/n): ")
+            opcao = input("\nDeseja acessar o histórico de partidas? (Y/N): ")
 
-            while opcao != "n" and opcao != "s":
-                opcao = input("\nOpção inávlida. Deseja acessar o histórico de partidas? (s/n): ")
+            while opcao.lower() != "n" and opcao.lower() != "y":
+                opcao = input("\nOpção inávlida. Deseja acessar o histórico de partidas? (Y/N): ")
 
-            if opcao == "s":
+            if opcao.lower() == "y":
                 print('-'*60)
                 print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
                 print(rodadas) 
@@ -297,8 +322,8 @@ elif c == 2: # humanoHumano()
             break
         else:
             print("\nBora pra mais uma!")
-            time.sleep(2)
-            os.system('cls')
+            
+            
             
 elif c == 3: # BotBot()
     pontj = 0  #🤖
@@ -421,10 +446,11 @@ elif c == 3: # BotBot()
         print(f'1º 😕 BOT🤖 {pontj} - 😐 BOT👾 {pontb}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
 
-    t = str(input('Você quer ver o histórico de partidas? (S/N) '))
-    if (t.lower()).strip() == 's':
+    t = str(input('Você quer ver o histórico de partidas? (Y/N) '))
+    
+    if (t.lower()).strip() == 'y':
         print('=-'*30)
-        print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
+        print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。HISTÓRICO DE PARTIDA 。✿ {g1.limpar}'.center(60))
         print('=-'*30)
         print(tabela)
     else:
