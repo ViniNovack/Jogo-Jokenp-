@@ -32,9 +32,3 @@ Um jogo de **Pedra, Papel e Tesoura** feito em Python, jogável direto no termin
 > Sem dependências externas — roda com Python puro!
  
 ---
-
-├── Jogo.py       # Arquivo principal do jogo
-└── README.md
-```
- 
----
