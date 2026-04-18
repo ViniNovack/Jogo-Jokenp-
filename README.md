@@ -32,23 +32,7 @@ Um jogo de **Pedra, Papel e Tesoura** feito em Python, jogável direto no termin
 > Sem dependências externas — roda com Python puro!
  
 ---
- 
-## ▶️ Como Executar
- 
-Certifique-se de ter o **Python 3** instalado e execute:
- 
-```bash
-python Jogo.py
-```
- 
-Escolha um dos três modos de jogo e divirta-se! 🎉
- 
----
- 
-## 📁 Estrutura do Projeto
- 
-```
-Jogo-Jokenpo/
+
 ├── Jogo.py       # Arquivo principal do jogo
 └── README.md
 ```
