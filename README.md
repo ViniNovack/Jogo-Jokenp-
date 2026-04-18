@@ -28,7 +28,4 @@ Um jogo de **Pedra, Papel e Tesoura** feito em Python, jogável direto no termin
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
  
 **Bibliotecas:** `random` · `os` · `time` · `getpass`
- 
-> Sem dependências externas — roda com Python puro!
- 
 ---
