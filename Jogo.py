@@ -13,6 +13,7 @@ class Cores:
     magenta = '\033[35m'
     ciano = '\033[36m'
     cinza = '\033[37m'
+    negrito = '\033[1m'
 
     # Cores de fundo para o terminal
     fundo_preto = '\033[40m'
@@ -38,7 +39,34 @@ print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
 print('=-'*30)
 
 
-c = int(input('>>> Escolha uma opção de jogo: '))
+c = (input('>>> Escolha uma opção de jogo: '))
+
+while True:
+    if c.isdigit():
+        if int(c) != 1 and int(c) != 2 and int(c) != 3:
+            os.system('cls')
+            print(f'❌{g1.vermelho} TENTE DE NOVO, resposta INVALIDA {g1.limpar}❌')
+            print("\n" + f'{g1.magenta}{g1.fundo_ciano} OPÇÕES DE JOGO {g1.limpar}'.center(60))
+            print('=-'*30)
+            print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
+            print('2. 😀 JOGAR CONTRA AMIGO 😁'.center(10))
+            print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
+            print('=-'*30)
+            c = (input('\n>>> Escolha uma opção de jogo: '))
+        else:
+            break
+    else:
+        os.system('cls')
+        print(f'❌{g1.vermelho} TENTE DE NOVO, resposta INVALIDA {g1.limpar}❌')
+        print("\n" + f'{g1.magenta}{g1.fundo_ciano} OPÇÕES DE JOGO {g1.limpar}'.center(60))
+        print('=-'*30)
+        print('1. 🤖 JOGAR CONTRA BOT 🤖'.center(10))
+        print('2. 😀 JOGAR CONTRA AMIGO 😁'.center(10))
+        print('3. 👾 OBSERVAR DOIS BOTS 🤖'.center(10))
+        print('=-'*30)
+        c = (input('\n>>> Escolha uma opção de jogo: '))
+
+c = int(c)
 
 if c == 1: # humanoBot()
     pontj = 0
@@ -68,10 +96,25 @@ if c == 1: # humanoBot()
                     print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
                     continue
         else:
-            time.sleep(2)
+            time.sleep(3)
             os.system('cls')
             while True:
-                v2 = str(input('Vamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
+                print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
+                print('=-'*30)
+                if pontj > pontb:
+                    print(f'1º {j1}😁 {pontj}'.center(10))
+                    print(f'2º BOT🤖 {pontb}'.center(10))
+                    print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
+                elif pontj < pontb:
+                    print(f'1º BOT🤖 {pontb}'.center(10))
+                    print(f'2º {j1}😢 {pontj}'.center(10))
+                    print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
+                else:
+                    print(f'1º BOT🤖 {pontb} - {j1}😐 {pontj}'.center(10))
+                    print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
+
+                v2 = str(input('\nVamos JOGAR MAIS UMA RODADA? (Y/N)\n'))
+
                 if (v2.lower()).strip() == 'n':
                     sair = True
                     break
@@ -183,7 +226,7 @@ elif c == 2: # humanoHumano()
     pontV2 = 0
 
     print("\nVocê selecionou o modo: HUMANO x HUMANO"
-          "\nQuem começará jogando?")
+          "\n\nQuem começará jogando?")
 
     j1 = input("\n» Digite o nome do Jogador 1: ")
 
@@ -192,16 +235,16 @@ elif c == 2: # humanoHumano()
     j2 = input("\n» Digite o nome do Jogador 2: ")
 
     while True:
-        time.sleep(2)
+        time.sleep(1)
         os.system("cls")
         i += 1
 
-        print("\nEstamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
-            "\n1 - pedra"
+        print("\n» Estamos prontos para começar! Selecione uma das opções abaixo para fazer sua jogada."
+            "\n\n1 - pedra"
             "\n2 - papel"
             "\n3 - tesoura")
         
-        jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+        jogada1 = (getpass.getpass(f"\nFaça sua jogada {g1.negrito}{j1}{g1.limpar}: "))
 
         # Verficação ----------------------------------------------
 
@@ -217,7 +260,7 @@ elif c == 2: # humanoHumano()
                             "\n2 - papel"
                             "\n3 - tesoura")
             
-                    jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+                    jogada1 = (getpass.getpass(f"\nFaça sua jogada {g1.negrito}{j1}{g1.limpar}: "))
                 else:
                     break
             else:
@@ -228,10 +271,10 @@ elif c == 2: # humanoHumano()
                             "\n2 - papel"
                             "\n3 - tesoura")
             
-                jogada1 = (getpass.getpass(f"\nFaça sua jogada {j1}: "))
+                jogada1 = (getpass.getpass(f"\nFaça sua jogada {g1.negrito}{j1}{g1.limpar}: "))
                         
 
-        jogada2 = (getpass.getpass(f"\nAgora é sua vez {j2}, faça sua jogada: "))
+        jogada2 = (getpass.getpass(f"\nAgora é sua vez {g1.negrito}{j2}{g1.limpar}, faça sua jogada: "))
 
         while True:
             if jogada2.isdigit():
@@ -245,7 +288,7 @@ elif c == 2: # humanoHumano()
                             "\n2 - papel"
                             "\n3 - tesoura")
             
-                    jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
+                    jogada2 = (getpass.getpass(f"\nFaça sua jogada {g1.negrito}{j2}{g1.limpar}: "))
                 else:
                     break
             else:
@@ -256,7 +299,7 @@ elif c == 2: # humanoHumano()
                             "\n2 - papel"
                             "\n3 - tesoura")
             
-                jogada2 = (getpass.getpass(f"\nFaça sua jogada {j2}: "))
+                jogada2 = (getpass.getpass(f"\nFaça sua jogada {g1.negrito}{j2}{g1.limpar}: "))
         
             # -----------------------------------------------------------------
         
@@ -280,7 +323,7 @@ elif c == 2: # humanoHumano()
             print(f"\n{g1.amarelo} » EMPATE « {g1.limpar}".center(40))
             print(f"\nQue fofinhos, vocês pensam igual! Ambos jogaram {jogada1Tipo}!")
 
-            rodadas += f"\n{g1.amarelo} • {i} - Empate {g1.limpar}"
+            rodadas += f"\n {g1.amarelo} • {i} - Empate {g1.limpar}"
 
             pontE += 1
         elif (jogada1 == 1 and jogada2 == 3) or (jogada1 == 2 and jogada2 == 1) or (jogada1 == 3 and jogada2 == 2):
@@ -297,33 +340,40 @@ elif c == 2: # humanoHumano()
             pontV2 += 1
             rodadas += f"\n {g1.azul} • {i} - Vitória de ☆ {j2} ☆ {g1.limpar}"
 
-        jogarNovamente = input("\nDeseja jogar novamente? (Y/N): ")
-        print(jogarNovamente)
 
-        while jogarNovamente.lower() != "y" and jogarNovamente.lower() != "n":
-            jogarNovamente = input("\nOpção inválida. Deseja jogar novamente? (s/n): ")
+        print("\n" + "=-"*30)
+        print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
+        print(f"\n→ {j1} • {pontV1} X {pontV2} • {j2}\n→ Empates: {pontE}")
+        print("\n" + "=-"*30)
+    
+        jogarNovamente = input("\nDeseja jogar novamente? (Y/N): ").lower().strip()
+
+        while jogarNovamente != "y" and jogarNovamente != "n":
+            jogarNovamente = input("\nOpção inválida. Deseja jogar novamente? (Y/N): ").lower().strip()
         
-        if jogarNovamente.lower() == "n":
-            time.sleep(1)
+        if jogarNovamente == "n":
+            time.sleep(2)
             os.system('cls')
-            print("RESULTADOS".center(60))
+            print("\n" + "=-"*30)
+            print(f'\n{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
             print(f"\n→ {j1} • {pontV1} X {pontV2} • {j2}\n→ Empates: {pontE}")
 
-            opcao = input("\nDeseja acessar o histórico de partidas? (Y/N): ")
+            opcao = input("\nDeseja acessar o histórico de partidas? (Y/N): ").lower().strip()
 
-            while opcao.lower() != "n" and opcao.lower() != "y":
+            while opcao != "n" and opcao != "y":
                 opcao = input("\nOpção inávlida. Deseja acessar o histórico de partidas? (Y/N): ")
 
-            if opcao.lower() == "y":
-                print('-'*60)
-                print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。TABELA DE PONTUAÇÃO 。✿ {g1.limpar}'.center(60))
+            if opcao == "y":
+                print("\n" + '-'*60)
+                print(f'{g1.ciano}{g1.fundo_magenta} ✿ 。HISTÓRICO DE PARTIDAS 。✿ {g1.limpar}'.center(60))
                 print(rodadas) 
                 print('-'*60)
+            
+            print(f"\nAgradecemos pela partida {j1} e {j2}, até a próxima! ❤️")
             break
         else:
-            print("\nBora pra mais uma!")
             
-            
+            print("\nBora pra mais uma!")           
             
 elif c == 3: # BotBot()
     pontj = 0  #🤖
@@ -352,7 +402,7 @@ elif c == 3: # BotBot()
                     sair = False
                     break
                 else:
-                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando as letras (Y/N).{g1.limpar}')
                     continue
             
         else:
@@ -367,7 +417,7 @@ elif c == 3: # BotBot()
                     sair = False
                     break
                 else:
-                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando os números (Y/N).{g1.limpar}')
+                    print(f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando as letras (Y/N).{g1.limpar}')
                     continue
         
         if sair:
@@ -446,7 +496,15 @@ elif c == 3: # BotBot()
         print(f'1º 😕 BOT🤖 {pontj} - 😐 BOT👾 {pontb}'.center(10))
         print(f'📌Epatamos em {ponte} rodadas😅'.center(10))
 
-    t = str(input('Você quer ver o histórico de partidas? (Y/N) '))
+
+    while True:
+        t = str(input('\nVocê quer ver o histórico de partidas? (Y/N) '))
+
+        if t.lower() != "y" and t.lower() != "n":
+            print('\n' + f'{g1.vermelho}Esse valor é INVALIDO😵🥴, tente de novo considerando as letras (Y/N).{g1.limpar}')
+            continue
+        else:
+            break
     
     if (t.lower()).strip() == 'y':
         print('=-'*30)
@@ -456,5 +514,3 @@ elif c == 3: # BotBot()
     else:
         print('Obrigado por jogar!')
 
-else:
-    print(f'❌{g1.vermelho} TENTE DE NOVO, resposta INVALIDA {g1.limpar}❌')
