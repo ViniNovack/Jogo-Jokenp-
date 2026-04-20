@@ -23,7 +23,7 @@
 
 ## 📖 Sobre o Projeto
 
-Este projeto é uma implementação do clássico jogo **Pedra, Papel e Tesoura** diretamente no terminal do Python. O jogo foi desenvolvido com foco em uma experiência interativa e divertida, utilizando cores no terminal via **ANSI escape codes**, emojis, validação de entradas e múltiplos modos de jogo.
+Este projeto é uma implementação do clássico jogo **Pedra, Papel e Tesoura** diretamente no terminal do Python. O jogo foi desenvolvido com foco em uma experiência interativa e divertida, utilizando cores no terminal, emojis, validação de entradas e múltiplos modos de jogo.
 
 O projeto foi criado como exercício prático de lógica de programação, estruturas de controle e organização de código em Python.
 
