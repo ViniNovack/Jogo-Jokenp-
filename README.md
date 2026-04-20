@@ -305,7 +305,3 @@ Deseja acessar seu histórico de partidas? (Y/N)
 </table>
 
 ---
-
-<p align="center">
-  Feito com ❤️ e muita tesoura ✌️
-</p>
