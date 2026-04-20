@@ -50,7 +50,7 @@ if c == 1: # humanoBot()
 
     os.system('cls')
     print('Você selecionou o modo: "🤖 JOGAR CONTRA BOT 🤖"')
-    j1 = str(input('Digite o seu nome: \n'))
+    j1 = str(input(' >>> Digite o seu nome: \n'))
     os.system('cls')
     print(f'Olá {j1}! \n''Eu sou o BOT🤖!, irei ganhar de você!🧐 \n')
     while True:
