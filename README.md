@@ -294,11 +294,11 @@ Deseja acessar seu histórico de partidas? (Y/N)
 <table>
   <tr>
     <td align="center">
-      <b>Vinícius</b><br/>
+      <a href="https://github.com/ViniNovack"><b>Vinícius</b></a><br/>
       🎮 Desenvolvedor
     </td>
     <td align="center">
-      <b>Carol</b><br/>
+      <a href="https://github.com/carolinacassaro"><b>Carolina</b></a><br/>
       🎮 Desenvolvedora
     </td>
   </tr>
