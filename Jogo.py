@@ -513,4 +513,3 @@ elif c == 3: # BotBot()
         print(tabela)
     else:
         print('Obrigado por jogar!')
-
